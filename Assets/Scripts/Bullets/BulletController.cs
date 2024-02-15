@@ -23,7 +23,6 @@ namespace Bullets
                 EnemyController enemy = hitInfo.GetComponent<EnemyController>();
                 if (enemy != null)
                     enemy.TakeDamage(_bulletData.BulletDamage);
-                Debug.Log($"Enemy Health: {enemy.EnemyData.HealthEnemy}");
                 Destroy(gameObject);
             }
             else if (hitInfo.CompareTag(nameof(Player)))
@@ -31,7 +30,6 @@ namespace Bullets
                 PlayerController player = hitInfo.GetComponent<PlayerController>();
                 if (player != null)
                     player.TakeDamage(_bulletData.BulletDamage);
-                Debug.Log($"Player Health: {player.PlayerData.Health}");
                 Destroy(gameObject);
             }
         }

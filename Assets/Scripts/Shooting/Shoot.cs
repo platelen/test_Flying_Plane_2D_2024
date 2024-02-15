@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Shooting
 {
@@ -6,12 +7,22 @@ namespace Shooting
     {
         [SerializeField] private GameObject _bullet;
         [SerializeField] private Transform _startPosBulelet;
+        [SerializeField] private SoShootData _soShootData;
 
-        private void Update()
+        //TODO сделать отключение корутины по событию проигрыша.
+
+        private void Start()
         {
-            if (Input.GetMouseButtonDown(1))
+            StartCoroutine(ShootBullet());
+        }
+
+
+        private IEnumerator ShootBullet()
+        {
+            while (true)
             {
                 Instantiate(_bullet, _startPosBulelet.position, _startPosBulelet.rotation);
+                yield return new WaitForSeconds(_soShootData.IntervalShoot);
             }
         }
     }

@@ -418,6 +418,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 352546204720970855, guid: e129b6a0198542b4b9e0220552d77bc7, type: 3}
+      propertyPath: _soShootData
+      value: 
+      objectReference: {fileID: 11400000, guid: cf4ff054f8b8cd6409eb09e0e3ffafa7, type: 2}
     - target: {fileID: 1780842796154851659, guid: e129b6a0198542b4b9e0220552d77bc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.034344643
@@ -861,6 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 3310700303382156571, guid: 80c920db9c77b194bae25361bff1023e, type: 3}
   _startPosBulelet: {fileID: 697458558}
+  _soShootData: {fileID: 11400000, guid: bd26225b72dd6df4b974384dfffcb16a, type: 2}
 --- !u!114 &6149636914506435096
 MonoBehaviour:
   m_ObjectHideFlags: 0

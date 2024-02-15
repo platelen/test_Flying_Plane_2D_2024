@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemy
 {
@@ -7,11 +6,7 @@ namespace Enemy
     {
         [SerializeField] private SoEnemyData _soEnemyData;
 
-        public SoEnemyData EnemyData
-        {
-            get => _soEnemyData;
-            set => _soEnemyData = value;
-        }
+        public SoEnemyData EnemyData => _soEnemyData;
 
         private void Start()
         {
