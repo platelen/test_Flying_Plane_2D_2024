@@ -56,6 +56,12 @@ namespace Player
             }
         }
 
+        public void HealingPlayer(int heal)
+        {
+            PlayerData.CurrentHealth += heal;
+            _healthBar.SetHealth(_soPlayerData.CurrentHealth);
+        }
+
         private void Die()
         {
             Destroy(gameObject);

@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 607043205}
   - component: {fileID: 607043206}
   m_Layer: 0
-  m_Name: Destroy_Bullet (1)
+  m_Name: Border_Down
   m_TagString: Border
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 1180900445}
   - component: {fileID: 1180900446}
   m_Layer: 0
-  m_Name: Destroy_Bullet
+  m_Name: Border_Top
   m_TagString: Border
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -902,8 +902,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1775353259}
   - component: {fileID: 1775353258}
+  - component: {fileID: 1775353260}
   m_Layer: 0
-  m_Name: Game_Manager
+  m_Name: Spawn_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +917,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775353257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27f587e37f6be394ca7edf16d87a194f, type: 3}
   m_Name: 
@@ -943,6 +944,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775353260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775353257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcd40ed7c06ee24d9f2373f938d2b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bigHealthKits: {fileID: 7268429388152312439, guid: 29f00e89bf9656549a5f2ade91241fa3, type: 3}
+  _smallHealthKits: {fileID: 8881958650806276261, guid: 41f49b8e0c9afa54d8003eaf325c6014, type: 3}
+  soHealthKitDataSpawn: {fileID: 11400000, guid: 14f2041b6c548054ca2596d30e199f5e, type: 2}
+  _spawnArea:
+    serializedVersion: 2
+    x: -2.05
+    y: 0.35
+    width: 4.11
+    height: 4.02
+  debugColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1973934151
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973934152}
   m_Layer: 0
-  m_Name: Border_Bullet
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
