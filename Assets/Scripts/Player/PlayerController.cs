@@ -25,5 +25,6 @@ namespace Player
             _swipeControlls.HandleInput(_soPlayerData.MoveSpeed, _rb);
             _screenBorder.CheckBorder(gameObject.transform, _soBorderData.BorderX, _soBorderData.BorderY);
         }
+
     }
 }
