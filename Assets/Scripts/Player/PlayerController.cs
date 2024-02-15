@@ -47,10 +47,10 @@ namespace Player
 
         public void TakeDamage(int damage)
         {
-            PlayerData.CurrentHealth -= damage;
+            _soPlayerData.CurrentHealth -= damage;
             _healthBar.SetHealth(_soPlayerData.CurrentHealth);
 
-            if (PlayerData.CurrentHealth <= 0)
+            if (_soPlayerData.CurrentHealth <= 0)
             {
                 Die();
             }
@@ -58,7 +58,7 @@ namespace Player
 
         public void HealingPlayer(int heal)
         {
-            PlayerData.CurrentHealth += heal;
+            _soPlayerData.CurrentHealth += heal;
             _healthBar.SetHealth(_soPlayerData.CurrentHealth);
         }
 
