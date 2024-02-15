@@ -10,7 +10,6 @@ namespace Player
         [SerializeField] private int _currentHealth;
 
         public float MoveSpeed => _moveSpeed;
-
         public int Health => _health;
 
         public int CurrentHealth

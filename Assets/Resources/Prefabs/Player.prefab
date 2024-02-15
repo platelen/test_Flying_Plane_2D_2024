@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soPlayerData: {fileID: 11400000, guid: f2696fe56c4901b48b38ba846bcffab9, type: 2}
   _soBorderData: {fileID: 11400000, guid: 07eaaa9ed691f6d4d9f2f72254a9bf4d, type: 2}
+  _healthBar: {fileID: 0}
 --- !u!114 &352546204720970855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 7205008965863322954, guid: 255a50d706e3fe44bae1c6c3b8bba32f, type: 3}
   _startPosBulelet: {fileID: 3536330899535445366}
+  _soShootData: {fileID: 11400000, guid: cf4ff054f8b8cd6409eb09e0e3ffafa7, type: 2}
 --- !u!1 &8571605185936741698
 GameObject:
   m_ObjectHideFlags: 0

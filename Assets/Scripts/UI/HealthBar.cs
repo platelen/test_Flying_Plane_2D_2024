@@ -12,7 +12,7 @@ namespace UI
         private Slider _slider;
 
 
-        private void Start()
+        private void Awake()
         {
             _slider = GetComponent<Slider>();
         }
