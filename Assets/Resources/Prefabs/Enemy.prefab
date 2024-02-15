@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 2761787180086544266}
   - component: {fileID: 6184317703125076322}
   - component: {fileID: 6355500567318114188}
+  - component: {fileID: 1081163483131920816}
+  - component: {fileID: 6854502627828581321}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -222,3 +224,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &1081163483131920816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384852197895243632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a52033e449489e921ff66bfb01654b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 3310700303382156571, guid: 80c920db9c77b194bae25361bff1023e, type: 3}
+  _startPosBulelet: {fileID: 7668473795386774178}
+  _soShootData: {fileID: 11400000, guid: bd26225b72dd6df4b974384dfffcb16a, type: 2}
+--- !u!114 &6854502627828581321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384852197895243632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccef3c055e2b43b1ab8fd2c96c1a21a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soEnemyData: {fileID: 11400000, guid: 16fc5ab7631a01b4eaa880ab33b9b643, type: 2}
+  _soBorderData: {fileID: 11400000, guid: 07eaaa9ed691f6d4d9f2f72254a9bf4d, type: 2}

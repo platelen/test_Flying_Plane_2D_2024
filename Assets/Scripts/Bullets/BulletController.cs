@@ -32,6 +32,10 @@ namespace Bullets
                     player.TakeDamage(_bulletData.BulletDamage);
                 Destroy(gameObject);
             }
+            else if (hitInfo.CompareTag("Border"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
