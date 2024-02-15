@@ -10,9 +10,6 @@ namespace Swipe_Controller
 
         public void HandleInput(float _soMoveSpeed, Rigidbody2D rb)
         {
-            if (Input.GetMouseButtonDown(1))
-                Debug.Log("Нажата правая кнопка мышки");
-            
             if (Input.GetMouseButtonDown(0))
             {
                 touchStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

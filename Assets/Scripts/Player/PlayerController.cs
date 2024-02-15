@@ -13,6 +13,12 @@ namespace Player
         private SwipeControlls _swipeControlls;
         private ScreenBorder _screenBorder;
 
+        public SoPlayerData PlayerData
+        {
+            get => _soPlayerData;
+            set => _soPlayerData = value;
+        }
+
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -22,9 +28,22 @@ namespace Player
 
         private void Update()
         {
-            _swipeControlls.HandleInput(_soPlayerData.MoveSpeed, _rb);
+            _swipeControlls.HandleInput(PlayerData.MoveSpeed, _rb);
             _screenBorder.CheckBorder(gameObject.transform, _soBorderData.BorderX, _soBorderData.BorderY);
         }
 
+        public void TakeDamage(int damage)
+        {
+            PlayerData.Health -= damage;
+            if (PlayerData.Health <= 0)
+            {
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            Destroy(gameObject);
+        }
     }
 }
