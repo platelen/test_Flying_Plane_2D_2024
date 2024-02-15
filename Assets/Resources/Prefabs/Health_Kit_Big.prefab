@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 3552344693069898688}
   - component: {fileID: 5752082467011912864}
   - component: {fileID: 8562617830390843509}
+  - component: {fileID: -1914486313008580728}
   m_Layer: 0
   m_Name: Health_Kit_Big
   m_TagString: Untagged
@@ -212,3 +213,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1914486313008580728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268429388152312439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c03c22ace44f33b761b2c97735e412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soKitData: {fileID: 11400000, guid: 25fd28d3c9cabdc4c8f0d9d8b4a67663, type: 2}

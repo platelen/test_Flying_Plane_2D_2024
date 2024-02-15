@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Health_Kit
 {
@@ -7,7 +8,7 @@ namespace Health_Kit
     {
         [SerializeField] private GameObject _bigHealthKits;
         [SerializeField] private GameObject _smallHealthKits;
-        [SerializeField] private SoHealthKitData _soHealthKitData;
+        [FormerlySerializedAs("_soHealthKitData")] [SerializeField] private SoHealthKitDataSpawn soHealthKitDataSpawn;
         [SerializeField] private Rect _spawnArea;
         [SerializeField] private Color debugColor = Color.green;
 
@@ -15,9 +16,9 @@ namespace Health_Kit
         private void Start()
         {
             StartCoroutine(SpawnPrefabCoroutine(_smallHealthKits,
-                Random.Range(_soHealthKitData.MinSpawnIntervalSmall, _soHealthKitData.MaxSpawnIntervalSmall)));
+                Random.Range(soHealthKitDataSpawn.MinSpawnIntervalSmall, soHealthKitDataSpawn.MaxSpawnIntervalSmall)));
             StartCoroutine(SpawnPrefabCoroutine(_bigHealthKits,
-                Random.Range(_soHealthKitData.MinSpawnIntervalBig, _soHealthKitData.MaxSpawnIntervalBig)));
+                Random.Range(soHealthKitDataSpawn.MinSpawnIntervalBig, soHealthKitDataSpawn.MaxSpawnIntervalBig)));
         }
 
         private IEnumerator SpawnPrefabCoroutine(GameObject prefab, float spawnInterval)

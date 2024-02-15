@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Health_Kit
 {
-    [CreateAssetMenu(menuName = "Create Health Kit Data", fileName = "Health Kit Data")]
-    public class SoHealthKitData : ScriptableObject
+    [CreateAssetMenu(menuName = "Create Health Kit Data Spawn", fileName = "Health Kit Data Spawn")]
+    public class SoHealthKitDataSpawn : ScriptableObject
     {
         [SerializeField] private float _minSpawnIntervalBig = 30f;
         [SerializeField] private float _maxSpawnIntervalBig = 60f;
