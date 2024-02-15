@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c101f2878ec3b499235c1ce1e86a45, type: 3}
   m_Name: Player Shoot Data
   m_EditorClassIdentifier: 
-  _intervalShoot: 1.5
+  _intervalShoot: 2

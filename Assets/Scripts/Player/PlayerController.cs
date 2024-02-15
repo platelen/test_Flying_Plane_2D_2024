@@ -15,16 +15,25 @@ namespace Player
         private SwipeControlls _swipeControlls;
         private ScreenBorder _screenBorder;
 
-        public SoPlayerData PlayerData
-        {
-            get => _soPlayerData;
-            set => _soPlayerData = value;
-        }
+        public SoPlayerData PlayerData => _soPlayerData;
+
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
             _soPlayerData.CurrentHealth = _soPlayerData.Health;
+
+            _healthBar = FindObjectOfType<HealthBar>();
+
+            if (_healthBar == null)
+            {
+                Debug.LogError("Не удалось найти объект HealthBar на сцене.");
+            }
+            else
+            {
+                _healthBar.SetMaxHealth(_soPlayerData.Health);
+            }
+
             _healthBar.SetMaxHealth(_soPlayerData.Health);
             _swipeControlls = new SwipeControlls();
             _screenBorder = new ScreenBorder();
