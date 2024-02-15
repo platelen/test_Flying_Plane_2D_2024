@@ -1,5 +1,6 @@
 using Screen_Border;
 using Swipe_Controller;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -8,6 +9,7 @@ namespace Player
     {
         [SerializeField] private SoPlayerData _soPlayerData;
         [SerializeField] private SoBorderData _soBorderData;
+        [SerializeField] private HealthBar _healthBar;
 
         private Rigidbody2D _rb;
         private SwipeControlls _swipeControlls;
@@ -22,6 +24,8 @@ namespace Player
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _soPlayerData.CurrentHealth = _soPlayerData.Health;
+            _healthBar.SetMaxHealth(_soPlayerData.Health);
             _swipeControlls = new SwipeControlls();
             _screenBorder = new ScreenBorder();
         }
@@ -34,8 +38,10 @@ namespace Player
 
         public void TakeDamage(int damage)
         {
-            PlayerData.Health -= damage;
-            if (PlayerData.Health <= 0)
+            PlayerData.CurrentHealth -= damage;
+            _healthBar.SetHealth(_soPlayerData.CurrentHealth);
+
+            if (PlayerData.CurrentHealth <= 0)
             {
                 Die();
             }

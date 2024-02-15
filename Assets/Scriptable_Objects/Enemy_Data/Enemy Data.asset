@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
   _speedEnemy: 3
-  _healthEnemy: 10
+  _healthEnemy: 0

@@ -7,6 +7,7 @@ namespace Player
     {
         [SerializeField] private float _moveSpeed = 5f;
         [SerializeField] private int _health = 20;
+        [SerializeField] private int _currentHealth;
 
         public float MoveSpeed => _moveSpeed;
 
@@ -14,6 +15,12 @@ namespace Player
         {
             get => _health;
             set => _health = value;
+        }
+
+        public int CurrentHealth
+        {
+            get => _currentHealth;
+            set => _currentHealth = value;
         }
     }
 }
