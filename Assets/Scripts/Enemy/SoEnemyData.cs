@@ -7,6 +7,7 @@ namespace Enemy
     {
         [SerializeField] private float _speedEnemy = 3f;
         [SerializeField] private int _healthEnemy = 10;
+        [SerializeField] private int _currentHealth;
 
         public float SpeedEnemy => _speedEnemy;
 
@@ -14,6 +15,12 @@ namespace Enemy
         {
             get => _healthEnemy;
             set => _healthEnemy = value;
+        }
+
+        public int CurrentHealth
+        {
+            get => _currentHealth;
+            set => _currentHealth = value;
         }
     }
 }

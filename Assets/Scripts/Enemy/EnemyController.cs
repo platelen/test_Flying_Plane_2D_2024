@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Enemy
 {
@@ -12,10 +13,15 @@ namespace Enemy
             set => _soEnemyData = value;
         }
 
+        private void Start()
+        {
+            _soEnemyData.CurrentHealth = _soEnemyData.HealthEnemy;
+        }
+
         public void TakeDamage(int damage)
         {
-            EnemyData.HealthEnemy -= damage;
-            if (EnemyData.HealthEnemy <= 0)
+            EnemyData.CurrentHealth -= damage;
+            if (EnemyData.CurrentHealth <= 0)
             {
                 Die();
             }
