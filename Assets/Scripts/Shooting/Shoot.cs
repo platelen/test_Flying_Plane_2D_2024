@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Events;
 using UnityEngine;
 
 namespace Shooting
@@ -13,7 +14,12 @@ namespace Shooting
 
         private void Start()
         {
-            StartCoroutine(ShootBullet());
+            if (gameObject.CompareTag(nameof(Enemy)))
+            {
+                StartShootEnemyEvent.OnStartShootEnemy.AddListener(() => StartCoroutine(ShootBullet()));
+            }
+            else
+                StartCoroutine(ShootBullet());
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Events;
 using Screen_Border;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,16 +14,16 @@ namespace Enemy
 
         private ScreenBorder _screenBorder;
         private Rigidbody2D _rigidbody;
-        public SoEnemyData EnemyData => _soEnemyData;
+        private bool initialMovementComplete = false;
 
 
         private void Start()
         {
             _screenBorder = new ScreenBorder();
             _rigidbody = GetComponent<Rigidbody2D>();
-            EnemyData.CurrentHealth = EnemyData.HealthEnemy;
-            
-            StartCoroutine(nameof(MoveEnemyCoroutine));
+            _soEnemyData.CurrentHealth = _soEnemyData.HealthEnemy;
+
+            StartCoroutine(nameof(InitialMovementCoroutine));
         }
 
         private void Update()
@@ -34,18 +35,37 @@ namespace Enemy
         {
             while (true)
             {
-                float randomDirection = Random.Range(EnemyData.LeftDir, EnemyData.RightDir);
+                float randomDirection = Random.Range(_soEnemyData.LeftDir, _soEnemyData.RightDir);
                 Vector2 movement = (randomDirection < 0.5f) ? Vector2.left : Vector2.right;
-                _rigidbody.velocity = movement * EnemyData.SpeedEnemy;
+                _rigidbody.velocity = movement * _soEnemyData.SpeedEnemy;
 
-                yield return new WaitForSeconds(Random.Range(EnemyData.MinValueCorut, EnemyData.MaxValueCorut));
+                yield return new WaitForSeconds(Random.Range(_soEnemyData.MinValueCorut, _soEnemyData.MaxValueCorut));
             }
+        }
+
+        private IEnumerator InitialMovementCoroutine()
+        {
+            Vector2 startPosition = transform.position;
+            Vector2 endPosition = new Vector2(startPosition.x, startPosition.y - _soEnemyData.InitialDistance);
+            float flySpeed = _soEnemyData.SpeedEnemy;
+
+            while (transform.position.y > endPosition.y)
+            {
+                _rigidbody.velocity = Vector2.down * flySpeed;
+
+                yield return null;
+            }
+
+            _rigidbody.velocity = Vector2.zero;
+            
+            StartShootEnemyEvent.SendStartShootEnemy();
+            StartCoroutine(MoveEnemyCoroutine());
         }
 
         public void TakeDamage(int damage)
         {
-            EnemyData.CurrentHealth -= damage;
-            if (EnemyData.CurrentHealth <= 0)
+            _soEnemyData.CurrentHealth -= damage;
+            if (_soEnemyData.CurrentHealth <= 0)
             {
                 Die();
             }
