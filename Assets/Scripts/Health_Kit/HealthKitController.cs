@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 
 namespace Health_Kit
@@ -30,6 +31,15 @@ namespace Health_Kit
             if (hitInfo.CompareTag("Border"))
             {
                 Destroy(gameObject);
+            }
+            else if (hitInfo.CompareTag(nameof(Player)))
+            {
+                PlayerController player = hitInfo.GetComponent<PlayerController>();
+                if (player != null)
+                {
+                    player.HealingPlayer(_soKitData.HealthRecovery);
+                    Destroy(gameObject);
+                }
             }
         }
     }
