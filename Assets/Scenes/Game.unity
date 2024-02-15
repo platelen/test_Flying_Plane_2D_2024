@@ -961,10 +961,10 @@ MonoBehaviour:
   _soHealthKitData: {fileID: 11400000, guid: 14f2041b6c548054ca2596d30e199f5e, type: 2}
   _spawnArea:
     serializedVersion: 2
-    x: -2.11
-    y: 0.39
-    width: 4.26
-    height: 4.32
+    x: -2.05
+    y: 0.35
+    width: 4.11
+    height: 4.02
   debugColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1973934151
 GameObject:
