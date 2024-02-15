@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2acc441545a541668edbac166e587a00, type: 3}
-  m_Name: Border Data
+  m_Script: {fileID: 11500000, guid: 47c101f2878ec3b499235c1ce1e86a45, type: 3}
+  m_Name: Enemy Shoot Data
   m_EditorClassIdentifier: 
-  _borderX: 2
-  _borderY: 4
+  _intervalShoot: 1
