@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc4f58588857684ba724086443be64f, type: 3}
-  m_Name: Player Data
+  m_Script: {fileID: 11500000, guid: a768ee9f069245bc86b27bb21e199de2, type: 3}
+  m_Name: Spawn Data
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _health: 12
-  _currentHealth: 20
+  _minSpawnInterval: 2
+  _maxSpawnInterval: 5

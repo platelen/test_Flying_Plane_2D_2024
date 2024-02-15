@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
   _speedEnemy: 1
-  _healthEnemy: 10
-  _currentHealth: 8
+  _healthEnemy: 1
+  _currentHealth: 1
   _minValueCorut: 1
   _maxValueCorut: 1.5
   _leftDir: 0
