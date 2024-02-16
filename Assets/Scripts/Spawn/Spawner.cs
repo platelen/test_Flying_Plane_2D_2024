@@ -1,19 +1,34 @@
+using System;
 using System.Collections;
+using Events;
 using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Spawn
 {
     public class Spawner : MonoBehaviour
     {
         [SerializeField] private Transform _startPosPlayer;
-        [Header("Spawn Enemy")] 
-        [SerializeField] private GameObject prefabToSpawn;
+
+        [Header("Spawn Enemy")] [SerializeField]
+        private GameObject prefabToSpawn;
+
         [SerializeField] private Transform[] spawnPoints;
         [SerializeField] private SoSpawnData _soSpawnData;
 
 
         private PlayerController _playerController;
+
+        private void OnEnable()
+        {
+            RestartGameEvent.OnStartRestartGame.AddListener(StartRestart);
+        }
+
+        private void OnDisable()
+        {
+            RestartGameEvent.OnStartRestartGame.RemoveListener(StartRestart);
+        }
 
         private void Start()
         {
@@ -21,15 +36,21 @@ namespace Spawn
             CreatePlayerInstance(nameof(Player));
         }
 
+        private void StartRestart()
+        {
+            StartCoroutine(nameof(SpawnPrefabWithInterval));
+            CreatePlayerInstance(nameof(Player));
+        }
+        
         private IEnumerator SpawnPrefabWithInterval()
         {
             while (true)
             {
                 Transform spawnPoint = GetRandomSpawnPoint();
-                
+
                 GameObject prefab = Instantiate(prefabToSpawn, spawnPoint.position, spawnPoint.rotation);
                 prefab.SetActive(true);
-                
+
                 float spawnInterval = Random.Range(_soSpawnData.MinSpawnInterval, _soSpawnData.MaxSpawnInterval);
                 yield return new WaitForSeconds(spawnInterval);
             }

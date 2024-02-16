@@ -1,3 +1,4 @@
+using Events;
 using Screen_Border;
 using Swipe_Controller;
 using UI;
@@ -41,24 +42,31 @@ namespace Player
 
         private void Update()
         {
-            _swipeControlls.HandleInput(PlayerData.MoveSpeed, _rb);
+            _swipeControlls.HandleInput(_soPlayerData.MoveSpeed, _rb);
             _screenBorder.CheckBorder(gameObject.transform, _soBorderData.BorderX, _soBorderData.BorderY);
         }
 
         public void TakeDamage(int damage)
         {
-            PlayerData.CurrentHealth -= damage;
+            _soPlayerData.CurrentHealth -= damage;
             _healthBar.SetHealth(_soPlayerData.CurrentHealth);
 
             if (PlayerData.CurrentHealth <= 0)
             {
+                GameOverEvent.SendStartGameOver();
                 Die();
             }
         }
 
         public void HealingPlayer(int heal)
         {
-            PlayerData.CurrentHealth += heal;
+            _soPlayerData.CurrentHealth += heal;
+            _healthBar.SetHealth(_soPlayerData.CurrentHealth);
+        }
+
+        public void RestoreMaxHealth()
+        {
+            _soPlayerData.RestoreMaxHealth();
             _healthBar.SetHealth(_soPlayerData.CurrentHealth);
         }
 

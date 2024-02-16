@@ -10,18 +10,28 @@ namespace Shooting
         [SerializeField] private Transform _startPosBulelet;
         [SerializeField] private SoShootData _soShootData;
 
-        //TODO сделать отключение корутины по событию проигрыша.
+
+        private Coroutine _shootCoroutine;
 
         private void Start()
         {
             if (gameObject.CompareTag(nameof(Enemy)))
             {
-                StartShootEnemyEvent.OnStartShootEnemy.AddListener(() => StartCoroutine(ShootBullet()));
+                StartShootEnemyEvent.OnStartShootEnemy.AddListener(StartShooting);
             }
             else
-                StartCoroutine(ShootBullet());
+            {
+                _shootCoroutine = StartCoroutine(ShootBullet());
+            }
         }
 
+        private void StartShooting()
+        {
+            if (_shootCoroutine == null)
+            {
+                _shootCoroutine = StartCoroutine(ShootBullet());
+            }
+        }
 
         private IEnumerator ShootBullet()
         {

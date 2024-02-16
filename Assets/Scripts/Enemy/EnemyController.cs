@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Events;
+using Score;
 using Screen_Border;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,12 +12,14 @@ namespace Enemy
     {
         [SerializeField] private SoEnemyData _soEnemyData;
         [SerializeField] private SoBorderData _soBorderData;
+        [SerializeField] private SoScoreData _valueScoreEnemy;
 
 
         private ScreenBorder _screenBorder;
         private Rigidbody2D _rigidbody;
         private bool initialMovementComplete = false;
 
+        public static event Action<int> OnEnemyDie;
 
         private void Start()
         {
@@ -73,6 +77,9 @@ namespace Enemy
 
         private void Die()
         {
+            int scoreValue = _valueScoreEnemy.ScoreValue;
+       
+            OnEnemyDie?.Invoke(scoreValue);
             Destroy(gameObject);
         }
     }

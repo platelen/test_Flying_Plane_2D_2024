@@ -17,5 +17,9 @@ namespace Player
             get => _currentHealth;
             set { _currentHealth = Mathf.Clamp(value, 0, _health); }
         }
+        public void RestoreMaxHealth()
+        {
+            _currentHealth = _health;
+        }
     }
 }
