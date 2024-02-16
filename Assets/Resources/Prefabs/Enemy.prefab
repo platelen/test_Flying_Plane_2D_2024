@@ -253,3 +253,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soEnemyData: {fileID: 11400000, guid: 16fc5ab7631a01b4eaa880ab33b9b643, type: 2}
   _soBorderData: {fileID: 11400000, guid: 07eaaa9ed691f6d4d9f2f72254a9bf4d, type: 2}
+  _valueScoreEnemy: {fileID: 11400000, guid: 842863ac66025d84c9d7c122f74867db, type: 2}
