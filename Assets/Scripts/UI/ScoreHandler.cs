@@ -6,7 +6,12 @@ namespace UI
 {
     public class ScoreHandler : MonoBehaviour
     {
-        private TextMeshProUGUI _textScore;
+        [SerializeField] private TextMeshProUGUI _scoreCurrentAfterDestroy;
+        [SerializeField] private TextMeshProUGUI _textScore;
+        [SerializeField] private TextMeshProUGUI _scoreBest;
+
+        private int _bestScore;
+
 
         private void OnEnable()
         {
@@ -20,7 +25,8 @@ namespace UI
 
         private void Start()
         {
-            _textScore = GetComponent<TextMeshProUGUI>();
+            _bestScore = GetBestScoreFromStorage();
+            _scoreBest.text = _bestScore.ToString();
         }
 
         private void SetTextScore(int scoreValue)
@@ -31,11 +37,30 @@ namespace UI
             {
                 int newScore = currentScore + scoreValue;
                 _textScore.text = newScore.ToString();
+                _scoreCurrentAfterDestroy.text = newScore.ToString();
+
+                if (scoreValue > _bestScore)
+                {
+                    _bestScore = scoreValue;
+                    _scoreBest.text = _bestScore.ToString();
+                    SaveBestScoreToStorage();
+                }
             }
             else
             {
                 Debug.LogWarning("Текущий счет не удалось преобразовать в число.");
             }
+        }
+
+        public int GetBestScoreFromStorage()
+        {
+            return PlayerPrefs.GetInt("BestScore", 0);
+        }
+
+        private void SaveBestScoreToStorage()
+        {
+            PlayerPrefs.SetInt("BestScore", _bestScore);
+            PlayerPrefs.Save();
         }
     }
 }
