@@ -32,12 +32,21 @@ namespace Health_Kit
             {
                 Destroy(gameObject);
             }
+
             else if (hitInfo.CompareTag(nameof(Player)))
             {
                 PlayerController player = hitInfo.GetComponent<PlayerController>();
                 if (player != null)
                 {
-                    player.HealingPlayer(_soKitData.HealthRecovery);
+                    if (_soKitData.IsLargeKit)
+                    {
+                        player.RestoreMaxHealth();
+                    }
+                    else
+                    {
+                        player.HealingPlayer(_soKitData.HealthRecovery);
+                    }
+
                     Destroy(gameObject);
                 }
             }

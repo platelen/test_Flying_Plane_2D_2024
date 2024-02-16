@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Kit Data Big
   m_EditorClassIdentifier: 
   _speedKit: 2
-  _healthRecovery: 4
+  _healthRecovery: 0
+  _isLargeKit: 1
