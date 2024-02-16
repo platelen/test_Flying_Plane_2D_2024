@@ -39,9 +39,9 @@ namespace UI
                 _textScore.text = newScore.ToString();
                 _scoreCurrentAfterDestroy.text = newScore.ToString();
 
-                if (scoreValue > _bestScore)
+                if (newScore> _bestScore)
                 {
-                    _bestScore = scoreValue;
+                    _bestScore = newScore;
                     _scoreBest.text = _bestScore.ToString();
                     SaveBestScoreToStorage();
                 }

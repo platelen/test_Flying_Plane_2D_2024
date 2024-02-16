@@ -1,3 +1,4 @@
+using Events;
 using Screen_Border;
 using Swipe_Controller;
 using UI;
@@ -52,6 +53,7 @@ namespace Player
 
             if (PlayerData.CurrentHealth <= 0)
             {
+                GameOverEvent.SendStartGameOver();
                 Die();
             }
         }

@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
+using Events;
 using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Spawn
 {
@@ -15,12 +18,22 @@ namespace Spawn
 
         private PlayerController _playerController;
 
+        private void Awake()
+        {
+            GameOverEvent.OnStartGameOver.AddListener(StopGame);
+        }
+
         private void Start()
         {
             StartCoroutine(nameof(SpawnPrefabWithInterval));
             CreatePlayerInstance(nameof(Player));
         }
 
+        private void StopGame()
+        {
+            StopAllCoroutines();
+            Time.timeScale = 0f;
+        }
         private IEnumerator SpawnPrefabWithInterval()
         {
             while (true)
