@@ -2117,7 +2117,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 691748547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1246719452}
+        m_TargetAssemblyTypeName: UI.RestartGame.ButtonController, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &691748547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3414,6 +3426,7 @@ GameObject:
   - component: {fileID: 1246719450}
   - component: {fileID: 1246719449}
   - component: {fileID: 1246719451}
+  - component: {fileID: 1246719452}
   m_Layer: 0
   m_Name: ====== Game_Manager ======
   m_TagString: Untagged
@@ -3436,6 +3449,8 @@ MonoBehaviour:
   _panelsAfterGamveOver:
   - {fileID: 792974392}
   - {fileID: 541470284}
+  _oldBackground: {fileID: 704764129}
+  _bestBackground: {fileID: 1340354609}
 --- !u!4 &1246719450
 Transform:
   m_ObjectHideFlags: 0
@@ -3461,6 +3476,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aceeebea77e64367b7abd6c4d71f229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246719452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246719448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16abfc6f7448669effe30c011eb4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1247643625
@@ -3800,7 +3827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1652047871}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1246719452}
+        m_TargetAssemblyTypeName: UI.RestartGame.ButtonController, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1652047871
 MonoBehaviour:
   m_ObjectHideFlags: 0

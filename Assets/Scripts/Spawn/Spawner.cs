@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Events;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,6 +20,15 @@ namespace Spawn
 
         private PlayerController _playerController;
 
+        private void OnEnable()
+        {
+            RestartGameEvent.OnStartRestartGame.AddListener(StartRestart);
+        }
+
+        private void OnDisable()
+        {
+            RestartGameEvent.OnStartRestartGame.RemoveListener(StartRestart);
+        }
 
         private void Start()
         {
@@ -25,7 +36,12 @@ namespace Spawn
             CreatePlayerInstance(nameof(Player));
         }
 
-
+        private void StartRestart()
+        {
+            StartCoroutine(nameof(SpawnPrefabWithInterval));
+            CreatePlayerInstance(nameof(Player));
+        }
+        
         private IEnumerator SpawnPrefabWithInterval()
         {
             while (true)

@@ -1,4 +1,5 @@
 ﻿using Enemy;
+using Events;
 using TMPro;
 using UnityEngine;
 
@@ -11,15 +12,17 @@ namespace UI
         [SerializeField] private TextMeshProUGUI _scoreBest;
 
         private int _bestScore;
-
+        private int _restartText = 0;
 
         private void OnEnable()
         {
+            RestartGameEvent.OnStartRestartGame.AddListener(RestartText);
             EnemyController.OnEnemyDie += SetTextScore;
         }
 
         private void OnDisable()
         {
+            RestartGameEvent.OnStartRestartGame.RemoveListener(RestartText);
             EnemyController.OnEnemyDie -= SetTextScore;
         }
 
@@ -27,6 +30,12 @@ namespace UI
         {
             _bestScore = GetBestScoreFromStorage();
             _scoreBest.text = _bestScore.ToString();
+        }
+
+        private void RestartText()
+        {
+            _scoreCurrentAfterDestroy.text = _restartText.ToString();
+            _textScore.text = _restartText.ToString();
         }
 
         private void SetTextScore(int scoreValue)
@@ -39,8 +48,9 @@ namespace UI
                 _textScore.text = newScore.ToString();
                 _scoreCurrentAfterDestroy.text = newScore.ToString();
 
-                if (newScore> _bestScore)
+                if (newScore > _bestScore)
                 {
+                    SetBackgroundBestScoreEvent.SendStartSetBackBesScore();
                     _bestScore = newScore;
                     _scoreBest.text = _bestScore.ToString();
                     SaveBestScoreToStorage();
